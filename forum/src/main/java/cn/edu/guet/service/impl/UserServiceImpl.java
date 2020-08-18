@@ -6,12 +6,11 @@ import cn.edu.guet.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class UserServiceImpl implements IUserService {
+
     @Autowired
     UserMapper userMapper;
-
-
     @Override
     public User login(String username, String password) {
-        return null;
+       return userMapper.login(username,password);
     }
 }
