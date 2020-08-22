@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.guet.mapper.InvitationReplyMapper">
+    <resultMap id="getReplyIdMap" type="cn.edu.guet.model.Invi_Reply">
+        <result column="INVIID" property="inviid"/>
+        <result column="REPLYID" property="replyid"/>
+    </resultMap>
+    <insert id="insertInvitationReplyByReplyId" parameterType="cn.edu.guet.model.InvitionReply" >
+     INSERT INTO invition_reply VALUES (#{replyuserid},#{replyname},#{replytxt},#{clicknumber},#{replyid})
+    </insert>
+    <insert id="insertInviidAndReplyid" parameterType="cn.edu.guet.model.Invi_Reply">
+        INSERT INTO invi_reply VALUES (#{inviid,jdbcType=VARCHAR},#{replyid,jdbcType=VARCHAR})
+    </insert>
+    <update id="addReplyNumber" parameterType="cn.edu.guet.model.Invitation">
+         UPDATE invitation SET replynumber=#{replynumber} WHERE inviid=#{inviid}
+    </update>
+    <select id="getCurrentReplyNumber" parameterType="String" resultType="String">
+        SELECT replynumber FROM invitation WHERE inviid=#{inviid}
+    </select>
+    <delete id="deleteOneInvi_ReplyByReplyid" parameterType="String">
+        DELETE FROM invi_reply WHERE replyid=#{replyid,jdbcType=VARCHAR}
+    </delete>
+    <delete id="deleteOneIvition_ReplyByReplyid" parameterType="String">
+        DELETE FROM invition_reply WHERE replyid=#{replyid,jdbcType=VARCHAR}
+    </delete>
+    <delete id="deleteAllInvi_ReplyReplyByInviid" parameterType="String">
+        DELETE FROM invi_reply WHERE inviid=#{inviid,jdbcType=VARCHAR}
+    </delete>
+    <select id="getReplyIdByInviid" parameterType="String" resultMap="getReplyIdMap">
+        SELECT * FROM invi_reply WHERE inviid=#{inviid,jdbcType=VARCHAR}
+    </select>
+
+</mapper>

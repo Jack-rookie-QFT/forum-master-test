@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.guet.mapper.InvitationMapper">
+
+    <resultMap id="getAllInvitationMap" type="invitation">
+        <id property="inviId" column="INVIID"/>
+        <result property="titleName" column="TITLENAME"/>
+        <result property="txt" column="TXT"/>
+        <result property="clickNumber" column="CLICKNUMBER"/>
+        <result property="replyNumber" column="REPLYNUMBER"/>
+        <collection property="invitionReplys" column="INVIID" select="getAllReply"></collection>
+    </resultMap>
+    <select id="getAllInvitationAndReply" resultMap="getAllInvitationMap">
+        SELECT * FROM invitation
+    </select>
+
+    <select id="getAllReply" resultMap="getAllReplyMap">
+        select ie.* from invitation iv,invi_reply ir,invition_reply ie where iv.inviid=ir.inviid and ir.replyid=ie.replyid
+    </select>
+    <select id="getAllInvitationByUserId" parameterType="String" resultMap="getAllInvitationMap" >
+        select iv.* from users us,user_invi ui,invitation iv where us.userid=ui.userid and ui.inviid=iv.inviid and us.userid=#{vaule}
+    </select>
+
+    <select id="getInvitationByKeyword" resultMap="getAllInvitationMap" parameterType="String">
+        select iv.* from invitation iv,users us,user_invi ui where us.userid=ui.userid and ui.inviid=iv.inviid and iv.titlename like concat(concat('%',#{value}),'%')
+    </select>
+
+    <delete id="deleteInvitationByInviid" parameterType="String">
+        delete from invitation where inviid=#{value}
+    </delete>
+    <delete id="deleteInviidAndUserId" parameterType="String">
+        delete from user_invi where inviid=#{value}
+    </delete>
+
+    <insert id="addInvitationByInviId" parameterType="cn.edu.guet.model.Invitation" >
+        INSERT INTO invitation (inviid,titlename,txt) VALUES (#{inviid,jdbcType=VARCHAR},#{titlename,jdbcType=VARCHAR},#{txt,jdbcType=VARCHAR})
+    </insert>
+    <insert id="addInviidAndUserId" parameterType="cn.edu.guet.model.User_invi">
+        INSERT INTO user_invi VALUES (#{userid,jdbcType=VARCHAR},#{inviid,jdbcType=VARCHAR})
+    </insert>
+
+    <update id="updateInvitationByInviId" parameterType="cn.edu.guet.model.Invitation">
+        UPDATE invitation SET txt=#{txt,jdbcType=VARCHAR} WHERE inviid=#{inviid,jdbcType=VARCHAR}
+    </update>
+
+    <resultMap id="getAllReplyMap" type="InvitionReply">
+        <id property="replyid" column="REPLYID"></id>
+        <result property="replyuserid" column="REPLYUSERID"></result>
+        <result property="replyname" column="REPLYNNAME"></result>
+        <result property="replytxt" column="REPLYTXT"></result>
+        <result property="clicknumber" column="CLICKNUMBER"></result>
+    </resultMap>
+</mapper>
