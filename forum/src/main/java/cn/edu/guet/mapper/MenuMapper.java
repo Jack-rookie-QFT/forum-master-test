@@ -5,6 +5,6 @@ import cn.edu.guet.model.Menu;
 import java.util.List;
 
 public interface MenuMapper {
-    Menu getMenusById(String id);
-    List<Menu> getAllMenus();
+    List<Menu> getAllMenu();
+    List<Menu> getMenuById(String userid);
 }

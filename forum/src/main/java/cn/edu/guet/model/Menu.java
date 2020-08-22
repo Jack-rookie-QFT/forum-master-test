@@ -1,25 +1,30 @@
 package cn.edu.guet.model;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Menu implements Serializable {
-    private String id;
+public class Menu{
+    private String menuid;
     private String pid;
-    private String name;
-    private String icon;
+    private String menuname;
     private String url;
+    private String icon;
+    private List<Menu> childMenu=new ArrayList<Menu>();
 
-    private Menu parentMenus;
-    private List<Menu> childMenus=new ArrayList<Menu>();
-
-    public String getId() {
-        return id;
+    public List<Menu> getChildMenu() {
+        return childMenu;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setChildMenu(List<Menu> childMenu) {
+        this.childMenu = childMenu;
+    }
+
+    public String getMenuid() {
+        return menuid;
+    }
+
+    public void setMenuid(String menuid) {
+        this.menuid = menuid;
     }
 
     public String getPid() {
@@ -30,20 +35,12 @@ public class Menu implements Serializable {
         this.pid = pid;
     }
 
-    public String getName() {
-        return name;
+    public String getMenuname() {
+        return menuname;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
+    public void setMenuname(String menuname) {
+        this.menuname = menuname;
     }
 
     public String getUrl() {
@@ -54,19 +51,11 @@ public class Menu implements Serializable {
         this.url = url;
     }
 
-    public Menu getParentMenus() {
-        return parentMenus;
+    public String getIcon() {
+        return icon;
     }
 
-    public void setParentMenus(Menu parentMenus) {
-        this.parentMenus = parentMenus;
-    }
-
-    public List<Menu> getChildMenus() {
-        return childMenus;
-    }
-
-    public void setChildMenus(List<Menu> childMenus) {
-        this.childMenus = childMenus;
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 }

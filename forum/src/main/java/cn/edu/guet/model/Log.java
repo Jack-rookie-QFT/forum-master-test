@@ -13,14 +13,6 @@ public class Log {
     private String params;
     private String ip;
 
-    public Timestamp getTime() {
-        return time;
-    }
-
-    public void setTime(Timestamp time) {
-        this.time = time;
-    }
-
     public String getLog_id() {
         return log_id;
     }
@@ -53,6 +45,22 @@ public class Log {
         this.operate = operate;
     }
 
+    public Timestamp getTime() {
+        return time;
+    }
+
+    public void setTime(Timestamp time) {
+        this.time = time;
+    }
+
+    public String getClass_name() {
+        return class_name;
+    }
+
+    public void setClass_name(String class_name) {
+        this.class_name = class_name;
+    }
+
     public String getMethod_name() {
         return method_name;
     }
@@ -76,13 +84,4 @@ public class Log {
     public void setIp(String ip) {
         this.ip = ip;
     }
-
-    public String getClass_name() {
-        return class_name;
-    }
-
-    public void setClass_name(String class_name) {
-        this.class_name = class_name;
-    }
-
 }
