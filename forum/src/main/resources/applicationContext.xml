@@ -60,7 +60,10 @@
         <property name="basePackage" value="cn.edu.guet.mapper"></property>
     </bean>
     <bean id="userService" class="cn.edu.guet.service.impl.UserServiceImpl"></bean>
+<<<<<<< HEAD
     <bean id="menuService" class="cn.edu.guet.service.impl.MenuServiceImpl"></bean>
     <bean id="invitationService" class="cn.edu.guet.service.impl.InvitationServiceImpl"></bean>
     <bean id="invitationReplyService" class="cn.edu.guet.service.impl.InvitationReplyServiceImpl"></bean>
+=======
+>>>>>>> acf81b3994e9ed39ab420bdae92509ad801dd801
 </beans>

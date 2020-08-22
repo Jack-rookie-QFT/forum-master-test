@@ -8,16 +8,26 @@
         <result property="menuname" column="MENUNAME"/>
         <result property="url" column="URL"/>
         <result property="icon" column="ICON"/>
+<<<<<<< HEAD
         <collection property="childMenu" column="MENUID" select="getChildMenuByPID"></collection>
     </resultMap>
 
+=======
+        
+        <collection property="childMenu" column="MENUID" select="getChildMenuByPID"></collection>
+
+    </resultMap>
+>>>>>>> acf81b3994e9ed39ab420bdae92509ad801dd801
     <select id="getChildMenuByPID" resultMap="getMenuAndChildMenuMap">
         SELECT c.* FROM menu c,menu p WHERE c.pid=p.menuid AND p.menuid=#{value}
     </select>
     <select id="getAllMenu" resultMap="getMenuAndChildMenuMap">
         SELECT * FROM menu WHERE pid IS NULL
     </select>
+<<<<<<< HEAD
     <select id="getMenuById" resultMap="getMenuAndChildMenuMap">
         SELECT me.* FROM users us,users_role ur,roles ro,role_menu rm,menu me WHERE us.userid=ur.userid AND ur.roleid=ro.roleid AND ro.roleid=rm.roleid AND rm.menuid=me.menuid AND us.userid=#{value} AND me.pid IS NULL
     </select>
+=======
+>>>>>>> acf81b3994e9ed39ab420bdae92509ad801dd801
 </mapper>

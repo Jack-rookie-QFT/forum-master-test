@@ -1,14 +1,18 @@
 package cn.edu.guet.model;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
+=======
+>>>>>>> acf81b3994e9ed39ab420bdae92509ad801dd801
 public class Invitation {
     private String inviId;
     private String titleName;
     private String txt;
     private String clickNumber;
     private String replyNumber;
+<<<<<<< HEAD
     private List<InvitionReply> invitionReplys=new ArrayList<InvitionReply>();
 
     public List<InvitionReply> getInvitionReplys() {
@@ -19,6 +23,8 @@ public class Invitation {
         this.invitionReplys = invitionReplys;
     }
 
+=======
+>>>>>>> acf81b3994e9ed39ab420bdae92509ad801dd801
 
     public String getInviId() {
         return inviId;

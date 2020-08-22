@@ -1,5 +1,6 @@
 package cn.edu.guet.model;
 
+
 import java.sql.Timestamp;
 
 public class Log {

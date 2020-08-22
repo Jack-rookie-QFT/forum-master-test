@@ -5,6 +5,7 @@ public class Result {
     private String msg;
     private Object data;
 
+<<<<<<< HEAD
     public static Result success(int code, String msg,Object data){
 
         return new Result(code,msg,data);
@@ -14,6 +15,15 @@ public class Result {
         return new Result(code,msg,null);
     }
     public Result(int code,String msg,Object data){
+=======
+    public static Result success(Object data){
+        return new Result(200,"登录成功",data);
+    }
+    public static Result fail(){
+        return new Result(400,"登录失败",null);
+    }
+    public Result(int code, String msg, Object data){
+>>>>>>> acf81b3994e9ed39ab420bdae92509ad801dd801
         this.code=code;
         this.msg=msg;
         this.data=data;

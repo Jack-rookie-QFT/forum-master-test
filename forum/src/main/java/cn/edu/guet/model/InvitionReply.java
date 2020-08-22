@@ -1,12 +1,16 @@
 package cn.edu.guet.model;
 
 public class InvitionReply {
+<<<<<<< HEAD
     private String replyuserid;
+=======
+>>>>>>> acf81b3994e9ed39ab420bdae92509ad801dd801
     private String replyid;
     private String replyname;
     private String replytxt;
     private String clicknumber;
 
+<<<<<<< HEAD
 
     public String getReplyuserid() {
         return replyuserid;
@@ -16,6 +20,8 @@ public class InvitionReply {
         this.replyuserid = replyuserid;
     }
 
+=======
+>>>>>>> acf81b3994e9ed39ab420bdae92509ad801dd801
     public String getReplyid() {
         return replyid;
     }

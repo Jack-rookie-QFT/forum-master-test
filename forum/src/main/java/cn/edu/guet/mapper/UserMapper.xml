@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.guet.mapper.UserMapper">
+<<<<<<< HEAD
 
     <select id="login" parameterType="string" resultType="user">
         SELECT * FROM users WHERE username=#{username} AND password=#{password}
@@ -8,4 +9,9 @@
     <select id="getUserById" resultType="user">
 		SELECT * FROM users WHERE userid=#{value}
 	</select>
+=======
+    <select id="login" parameterType="string" resultType="user">
+        SELECT * FROM users WHERE username=#{username} AND password=#{password}
+    </select>
+>>>>>>> acf81b3994e9ed39ab420bdae92509ad801dd801
 </mapper>
